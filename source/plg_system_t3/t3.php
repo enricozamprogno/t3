@@ -352,9 +352,11 @@ class plgSystemT3 extends JPlugin
 			if (!$chromed) {
 				$chromed = true;
 				// We don't need chrome multi times
-				$chromePath = T3Path::getPath('html/modules.php');
-				if (file_exists($chromePath)) {
-					include_once $chromePath;
+				if (class_exists('T3Path')) {
+					$chromePath = T3Path::getPath('html/modules.php');
+					if (file_exists($chromePath)) {
+						include_once $chromePath;
+					}
 				}
 			}
 		}
